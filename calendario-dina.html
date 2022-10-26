@@ -1,0 +1,125 @@
+    <html>
+    <head>
+        <meta charset="UTF-8">
+   <title>Calendário dinâmico</title>
+   <link rel="stylesheet" href="test.css">
+   <center>
+<h2 id="i1">Calendário Dinâmico</h2>
+<h2 id="i2"></h2>
+
+</center>
+   <script lang="javascript">
+     var ix1 = document.getElementById('i1');
+     var ix2 = document.getElementById('i2');
+    var data, mes, ano, g, tom, jerry;
+    
+    ano = Number(window.prompt("Qual ano?"));
+    mes = Number(window.prompt("Qual mes?"));
+    data = new Date();
+    data.setDate(1);
+    data.setMonth(mes-1);
+    data.setFullYear(ano);
+    document.write("<table border=3>");
+    ix1.innerHTML = data.getFullYear();
+    switch(data.getMonth())
+    {
+      case 0 : ix2.innerHTML = "Janeiro"; break
+      case 1 : ix2.innerHTML = "Feveriro"; break
+      case 2 : ix2.innerHTML = "Março"; break
+      case 3 : ix2.innerHTML = "Abril"; break
+      case 4 : ix2.innerHTML = "Maio"; break
+      case 5 : ix2.innerHTML = "Junho"; break
+      case 6 : ix2.innerHTML = "Julho"; break
+      case 7 : ix2.innerHTML = "Agosto"; break
+      case 8 : ix2.innerHTML = "Setembro"; break
+      case 9 : ix2.innerHTML = "Outubro"; break
+      case 10 : ix2.innerHTML = "Novembro"; break
+      case 11 : ix2.innerHTML = "Dezembro"; break
+    }
+    for(var miney = 0; miney < 7; miney++) {
+        if (miney == 0)
+         {
+          tom="#00C9A7";
+          jerry="#FBEAFF";
+         }
+       else
+         {
+          tom="#B39CD0";
+          jerry="#FBEAFF";
+         }
+       document.write("<tr bgcolor=" + tom + " >");
+       document.write("<td align=center>");
+       document.write("<font size=6 color=" + jerry + "> ");
+        switch (miney)
+       {
+         case 0: document.write("Dom"); break;
+         case 1: document.write("Seg"); break;
+         case 2: document.write("Ter"); break;
+         case 3: document.write("Qua"); break;
+         case 4: document.write("Qui");  break;
+         case 5: document.write("Sex"); break;
+         case 6: document.write("Sab"); break;
+       }
+       document.write("</font>");
+       document.write("</td>")
+       if (miney == 6) document.write("</tr><br>");
+      }
+    for(g=2; g <= 32; g++)
+    {
+      if (mes-1 == data.getMonth())
+      {
+       if (data.getDay()==0)
+         {
+          tom="#00C9A7";
+          jerry="#FBEAFF";
+         }
+       else
+         {
+          tom="#B39CD0";
+          jerry="#FBEAFF";
+         }
+        if(g==2) {
+          var alfredo = data.getDay()
+        for(x = 1; x <= (alfredo+1); x++)
+        {
+          if (x == 1) {
+            tom="#00C9A7";
+          jerry="#FBEAFF";
+          } else {
+            tom="#B39CD0";
+          jerry="#FBEAFF";
+          }
+          document.write("<tr bgcolor=" + tom + " >");
+          document.write("<td width=200=5 align=center>");
+          document.write("<font face=arial size=6 color=" + jerry + "> ");
+              
+        }
+         switch (alfredo)
+       {
+         case 0: document.write(data.getDate()); break;
+         case 1: document.write(data.getDate()); break;
+         case 2: document.write(data.getDate()); break;
+         case 3: document.write(data.getDate()); break;
+         case 4: document.write(data.getDate());  break;
+         case 5: document.write(data.getDate()); break;
+         case 6: document.write(data.getDate()); break;
+       } 
+      } else {
+        document.write("<tr bgcolor=" + tom + " >");
+        document.write("<td width=200=5 align=center>");
+        document.write("<font face=arial size=6 color=" + jerry + "> " + data.getDate());
+      }
+       document.write("</font>");
+       document.write("</td>");
+        }
+        
+       if (g%7 == 0){
+       document.write("</tr><br>");
+       }
+       data.setDate(g);
+    }
+    
+    document.write("</table>");
+    </script>
+    </head>
+</html>
